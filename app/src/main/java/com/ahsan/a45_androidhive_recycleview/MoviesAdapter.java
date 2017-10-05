@@ -31,8 +31,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         this.moviesList = moviesList;
     }
 
-
-
+    //Here we inflate the layout we created for a single item
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
