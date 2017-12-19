@@ -13,10 +13,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     private List<Movie> moviesList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    //MoviesAdapter when called will use moviesList
+    public MoviesAdapter (List<Movie> moviesList){
+        this.moviesList = moviesList;
+    }
 
+    //Defining nested class MyViewHolder
+    public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView title, year, genre;
 
+        //Constructor of our class
         public MyViewHolder(View view){
             super(view);
             title = (TextView) view.findViewById(R.id.title);
@@ -26,16 +32,11 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         }
     }
 
-    //MoviesAdapter when called will use moviesList
-    public MoviesAdapter (List<Movie> moviesList){
-        this.moviesList = moviesList;
-    }
-
+    
     //Here we inflate the layout we created for a single item
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.movie_list_row, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_row, parent, false);
 
         return new MyViewHolder(itemView);
     }
